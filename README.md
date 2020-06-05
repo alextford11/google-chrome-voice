@@ -1,10 +1,12 @@
-# es6-starter-pack
-A starter pack for a web app using babel to transpile es5+, utilizing gulp &amp; webpack for compilation
+# Google Chrome Voice
+Google Chrome extension allowing you to use your voice to control how you use the internet.
 
-All development files are in the `/app` folder.
+Working Examples:
 
-## Usage
+- Change background colour to a colour of your choice.
+
+## Get Going
 
 1. `npm install`
-2. `build:dev` and `build:prod` npm scripts are compiling your code for development and production respectively.
-3. `npm start` is starting a `lite-server` inside the build folder
+2. `gulp auto` for dev or `gulp build` for prod (or just to use).
+3. Then follow a tutorial on how to load the extension into Chrome. Remember you want to load in the build folder only.
