@@ -46,7 +46,6 @@ export function checkAndGetEntities(entities, entity_requirements) {
     while (!check_complete) {
         const req_name = entity_to_check["name"];
         const entity = _getEntityWithName(entities, req_name);
-        console.log(entity);
         if (!entity) {
             return { check: false, code: error_code };
         }

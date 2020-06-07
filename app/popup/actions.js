@@ -21,6 +21,10 @@ export function changeBackgroundColour(data) {
     return `document.body.style.backgroundColor = "${colour}"`;
 }
 
+export function resetBackgroundColour(data) {
+    return `document.body.style.backgroundColor = ""`;
+}
+
 const example = {
     text: "change background to blue",
     intents: [{ id: "976245286168170", name: "update_background", confidence: 0.9998 }],
