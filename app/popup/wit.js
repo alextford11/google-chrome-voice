@@ -1,21 +1,11 @@
 import $ from "jquery";
 import { executeRequest } from "./execute";
+import { noTargetFound } from "./actions";
 const { Wit, log } = require("node-wit");
 
 const AUTH_CLIENT_TOKEN = "Bearer JTVPV6GG7KI2XGIYCH4RKUMTN3LUBVDU";
 
-// const client = new Wit({
-//     headers: {Authorization: AUTH_CLIENT_TOKEN},
-//     logger: new log.Logger(log.DEBUG)
-// });
-
 export function witSendMessage(message) {
-    // client
-    //     .message(message)
-    //     .then((data) => {
-    //         executeRequest(data);
-    //     })
-    //     .catch(console.error);
     const q = encodeURIComponent(message);
     const uri = "https://api.wit.ai/message?q=" + q;
     fetch(uri, { headers: { Authorization: AUTH_CLIENT_TOKEN } })
@@ -37,6 +27,39 @@ export function getMostConfidentFromArray(array) {
     return most_confident_obj;
 }
 
-export function objectBool(obj) {
-    return !!Object.entries(obj).length;
+export function _getEntityWithName(entities, name) {
+    let entity_to_return = {};
+    $.each(entities, (index, entity) => {
+        if (entity["name"] === name) {
+            entity_to_return = entity;
+            return false;
+        }
+    });
+    return entity_to_return;
+}
+
+export function checkAndGetEntities(entities, entity_requirements) {
+    let entity_details = {};
+    let entity_to_check = entity_requirements;
+    let check_complete = false;
+    const error_code = noTargetFound("I wasn't sure about what you said there, please try again.");
+    while (!check_complete) {
+        const req_name = entity_to_check["name"];
+        const entity = _getEntityWithName(entities, req_name);
+        console.log(entity);
+        if (!entity) {
+            return { check: false, code: error_code };
+        }
+        if (!entity["confidence"] >= 0.85) {
+            return { check: false, code: error_code };
+        }
+        entity_details[req_name] = entity;
+        if (entity_to_check.hasOwnProperty("sub_entity")) {
+            entities = entity["entities"];
+            entity_to_check = entity_to_check["sub_entity"];
+        } else {
+            check_complete = true;
+        }
+    }
+    return { check: true, entity_details: entity_details };
 }

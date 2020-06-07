@@ -9,7 +9,6 @@ export function executeRequest(data) {
 }
 
 export function getRequestFunction(data) {
-    console.log(data);
     const intents = data["intents"];
     let most_confident_intent = getMostConfidentFromArray(intents);
     if (Object.entries(most_confident_intent).length) {
