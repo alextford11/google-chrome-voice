@@ -1,6 +1,7 @@
 import $ from "jquery";
 import { checkAndGetEntities } from "./wit";
-import { TARGET, TARGET_COLOUR, TARGET_TARGET } from "./entity_vars";
+import { TARGET, TARGET_COLOUR, TARGET_IMAGE, TARGET_TARGET } from "./entity_vars";
+import { getImage } from "./google-search";
 
 export function noIntentFound(data) {
     return `alert("I'm sorry I didn't understand that, could you please try again")`;
@@ -23,6 +24,19 @@ export function changeBackgroundColour(data) {
 
 export function resetBackgroundColour(data) {
     return `document.body.style.backgroundColor = ""`;
+}
+
+export function changeBackgroundImage(data) {
+    const entity_requirements = { name: TARGET, sub_entity: { name: TARGET_IMAGE } };
+    const entities = data["entities"][TARGET_TARGET];
+    const entity_check = checkAndGetEntities(entities, entity_requirements);
+    if (!entity_check["check"]) {
+        return entity_check["code"];
+    }
+    const image_term = entity_check["entity_details"][TARGET_IMAGE]["value"];
+    const image = getImage(image_term);
+    const image_url = image["link"];
+    return `document.body.style.backgroundImage = "url('${image_url}')"`;
 }
 
 const example = {
