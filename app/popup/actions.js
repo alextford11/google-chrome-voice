@@ -39,6 +39,14 @@ export function changeBackgroundImage(data) {
     return `document.body.style.backgroundImage = "url('${image_url}')"`;
 }
 
+export function resetBackgroundImage(data) {
+    return `document.body.style.backgroundImage = ""`;
+}
+
+export function resetBackground(data) {
+    return `document.body.style.background = ""`;
+}
+
 const example = {
     text: "change background to blue",
     intents: [{ id: "976245286168170", name: "update_background", confidence: 0.9998 }],
