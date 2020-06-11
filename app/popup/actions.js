@@ -47,6 +47,14 @@ export function resetBackground(data) {
     return `document.body.style.background = ""`;
 }
 
+export function openNewTab(data) {
+    return `window.open('https://google.com')`;
+}
+
+export function closeCurrentTab(data) {
+    return `window.close()`;
+}
+
 const example = {
     text: "change background to blue",
     intents: [{ id: "976245286168170", name: "update_background", confidence: 0.9998 }],
