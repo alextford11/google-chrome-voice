@@ -1,8 +1,6 @@
 import $ from "jquery";
 import { executeRequest } from "./execute";
 import { noTargetFound } from "./actions";
-const { Wit, log } = require("node-wit");
-
 const AUTH_CLIENT_TOKEN = "Bearer JTVPV6GG7KI2XGIYCH4RKUMTN3LUBVDU";
 
 export function witSendMessage(message) {
