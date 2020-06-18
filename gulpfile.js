@@ -103,7 +103,7 @@ gulp.task(
         tasks.clean,
         tasks.copyAssets,
         tasks.copyHtml,
-        // tasks.copyCss,
+        tasks.copyCss,
         tasks.copyJs,
         tasks.copyManifest,
         compile

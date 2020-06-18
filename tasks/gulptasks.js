@@ -1,6 +1,9 @@
 const del = require("del");
 const gulp = require("gulp");
+const sass = require("gulp-sass");
 const OUT_DIR = "./build";
+
+sass.compiler = require("node-sass");
 
 // always copy the html first to dist folder
 const srcHTML = "./app/template/*";
@@ -20,7 +23,7 @@ function copyHtml(done) {
 }
 
 function copyCss(done) {
-    gulp.src(srcCSS).pipe(gulp.dest(OUT_DIR));
+    gulp.src(srcCSS).pipe(sass().on("error", sass.logError)).pipe(gulp.dest(OUT_DIR));
     done();
 }
 
