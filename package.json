@@ -9,7 +9,7 @@
     "build:prod": "gulp --production"
   },
   "keywords": [],
-  "author": "Alex Ford (alextford11@gmail.com)",
+  "author": "Alex Ford (alextford1@gmail.com)",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.10.2",
@@ -30,7 +30,7 @@
     "webpack-cli": "^3.3.11"
   },
   "resolutions": {
-    "serialize-javascript": "^2.1.1"
+    "serialize-javascript": "^4.0.0"
   },
   "dependencies": {
     "https-proxy-agent": "^5.0.0",

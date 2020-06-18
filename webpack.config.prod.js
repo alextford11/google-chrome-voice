@@ -1,14 +1,18 @@
 const path = require("path");
-const entryDir = path.resolve(__dirname, "app/popup");
 const outputDir = path.resolve(__dirname, "build/scripts");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
     mode: "production",
-    entry: entryDir,
+    entry: {
+        popup: path.resolve(__dirname, "app/popup"),
+        background: path.resolve(__dirname, "app/js/background.js"),
+        contentscript: path.resolve(__dirname, "app/js/contentscript.js"),
+        options: path.resolve(__dirname, "app/js/options.js")
+    },
     output: {
         path: outputDir,
-        filename: "popup.js"
+        filename: "[name].js"
     },
     module: {
         rules: [
