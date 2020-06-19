@@ -162,5 +162,5 @@ export function addBackgroundButton(container) {
 }
 
 export function addRandomTestButton(container, text) {
-    container.append(`<button value="${text}">${text}</button>`);
+    container.append(`<button value="${text}">"${text}"</button>`);
 }

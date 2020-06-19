@@ -1,3 +1,49 @@
 html, body {
-  background-color: black;
+  background-color: white;
+  min-width: 350px;
+  margin: 0;
 }
+
+h1, h2 {
+  color: #17BEBB;
+}
+
+button {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  border: none;
+  margin: .75rem auto;
+  padding: .75rem 2rem;
+  border-radius: 40px;
+  box-shadow: 0 6px 12px -2px rgba(50, 50, 93, 0.25), 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+  background-color: lightslategrey;
+  color: white;
+
+  &:hover {
+    background-color: darken(lightslategrey, 5%);
+    transform: translateY(-1px);
+    cursor: pointer;
+  }
+}
+
+.heading {
+  padding: .5rem 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 1rem;
+}
+
+#test-buttons {
+  margin: 0 2rem;
+
+  h2 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  button {
+    font-style: italic;
+  }
+}
+
+
+

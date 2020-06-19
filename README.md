@@ -4,6 +4,14 @@ Google Chrome extension allowing you to use your voice to control how you use th
 Working Examples:
 
 - Change background colour to a colour of your choice.
+- Change background to an image of your choice.
+- Reset the background to the default before your change.
+- Open new tab.
+- Close current tab.
+- Change a certain word on the page to a word of your choice.
+- Click a button by saying the text inside the button.
+- Click a button by saying the colour of the button.
+ 
 
 ## Get Going
 
