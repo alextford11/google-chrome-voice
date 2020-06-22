@@ -1,6 +1,7 @@
 import $ from "jquery";
 import { addBackgroundButton, addRandomTestButton } from "./test_functions";
 import { witSendMessage } from "./wit";
+import "./speechRecognition";
 
 ("use strict");
 
